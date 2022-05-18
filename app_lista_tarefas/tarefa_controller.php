@@ -29,8 +29,11 @@
 	} else if($acao == 'atualizar') {
 
 		$tarefa = new Tarefa();
-		$tarefa->__set('id', $_POST['id'])
-			->__set('tarefa', $_POST['tarefa']);
+		$tarefa->__set('id', $_POST['id']);
+		$tarefa->__set('tarefa', $_POST['tarefa']);
+
+		//com o return de tarefa.model.php a sintaxe acima fica assim:
+        //$tarefa->__set('id', $_POST['id'])->__set('tarefa', $_POST['tarefa']);
 
 		$conexao = new Conexao();
 
@@ -64,7 +67,8 @@
 	} else if($acao == 'marcarRealizada') {
 
 		$tarefa = new Tarefa();
-		$tarefa->__set('id', $_GET['id'])->__set('id_status', 2);
+		$tarefa->__set('id', $_GET['id']);
+		$tarefa->__set('id_status', 2);
 
 		$conexao = new Conexao();
 

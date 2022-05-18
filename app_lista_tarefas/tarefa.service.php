@@ -34,10 +34,16 @@ class TarefaService {
 
 	public function atualizar() { //update
 
-		$query = "update tb_tarefas set tarefa = ? where id = ?";
+		//Também é possível utilizar prepare com marcadores "?", como a seguir:
+        //$query = "update tb_tarefas set tarefa = ? where id = ?";
+        //$stmt->bindValue(1, $this->tarefa->__GET('tarefa'));
+        //$stmt->bindValue(2, $this->tarefa->__GET('id'));
+        // e assim sucessivamente
+
+		$query = "update tb_tarefas set tarefa = :tarefa where id = :id";
 		$stmt = $this->conexao->prepare($query);
-		$stmt->bindValue(1, $this->tarefa->__get('tarefa'));
-		$stmt->bindValue(2, $this->tarefa->__get('id'));
+		$stmt->bindValue(':tarefa', $this->tarefa->__get('tarefa'));
+		$stmt->bindValue(':id', $this->tarefa->__get('id'));
 		return $stmt->execute(); 
 	}
 
@@ -51,10 +57,10 @@ class TarefaService {
 
 	public function marcarRealizada() { //update
 
-		$query = "update tb_tarefas set id_status = ? where id = ?";
+		$query = "update tb_tarefas set id_status = :id_status where id = :id";
 		$stmt = $this->conexao->prepare($query);
-		$stmt->bindValue(1, $this->tarefa->__get('id_status'));
-		$stmt->bindValue(2, $this->tarefa->__get('id'));
+		$stmt->bindValue(':id_status', $this->tarefa->__get('id_status'));
+		$stmt->bindValue(':id', $this->tarefa->__get('id'));
 		return $stmt->execute(); 
 	}
 

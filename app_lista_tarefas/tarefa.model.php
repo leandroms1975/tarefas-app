@@ -12,7 +12,9 @@ class Tarefa {
 
 	public function __set($atributo, $valor) {
 		$this->$atributo = $valor;
-		return $this;
+
+		//também pode-se utilizar um retorno para a busca das tarefas no tarefa_controller.php, assim:
+        //return $this;
 	}
 }
 
