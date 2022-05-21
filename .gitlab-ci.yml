@@ -8,14 +8,14 @@ build:
   image: leandroms1975/tarefas-app
   script:
     - cd tarefas-app
-    - docker.test.skip=true clean package
+    - mvn -Dmaven.test.skip=true clean package
 
 test:
   stage: test
   image: leandroms1975/tarefas-app
   script:
     - cd tarefas-app
-    - docker test
+    - mvn test
 
 deploy:
   stage: deploy
