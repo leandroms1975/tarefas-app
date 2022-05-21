@@ -5,14 +5,14 @@ stages:
  
 build:
   stage: build
-  image: leandroms1975/tarefas-app
+  image: tarefas-app
   script:
     - cd tarefas-app
     - mvn -Dmaven.test.skip=true clean package
 
 test:
   stage: test
-  image: leandroms1975/tarefas-app
+  image: tarefas-app
   script:
     - cd tarefas-app
     - mvn test
