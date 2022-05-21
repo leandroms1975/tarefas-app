@@ -1,0 +1,2 @@
+git remote add heroku https://heroku:$HEROKU_API_KEY@git.heroku.com/alexleandro-tarefas-app.git
+git push -f heroku HEAD:master
