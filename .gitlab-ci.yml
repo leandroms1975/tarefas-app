@@ -3,6 +3,5 @@ heroku:
  only:
  - main
  script:
- - git remote -a alexleandro-tarefas-app
- - dpl --providers=heroku --app=$HEROKU_APP_ENV --api-key=$HEROKU_API_KEY
+ - git remote add heroku https://heroku:$HEROKU_API_KEY@git.heroku.com/alexleandro-tarefas-app.git
  - git push -f heroku main
