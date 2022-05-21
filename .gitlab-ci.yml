@@ -5,7 +5,6 @@ stages:
 
 build:
   stage: build
-<<<<<<< HEAD
   image: maven:3-jdk-11
   script:
     - cd tarefas-app
@@ -17,15 +16,6 @@ test:
   script:
     - cd tarefas-app
     - mvn test
-=======
-  script:
-    - cd tarefas-app
-
-test:
-  stage: test
-  script:
-    - cd tarefas-app
->>>>>>> de3382da211201640390f55c71e404675df98973
 
 deploy:
   stage: deploy
@@ -35,8 +25,4 @@ deploy:
     - apt-get update -qy
     - apt-get install -y ruby-dev
     - gem install dpl
-<<<<<<< HEAD
-    - dpl --provider=heroku --app=$HEROKU_APP_ENV --api-key=$HEROKU_API_KEY
-=======
-    - dpl --providers=heroku --app=$HEROKU_APP_ENV --api-key=$HEROKU_API_KEY
->>>>>>> de3382da211201640390f55c71e404675df98973
+    - dpl --provider=heroku --app=$HEROKU_APP_ENV --api-key=$HERO
