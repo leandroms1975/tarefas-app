@@ -1,7 +1,24 @@
-heroku:
- stage: deploy
- only:
- - master
- script:
- - git remote -a alexleandro-tarefas-app
- - git push -f heroku mastee
+stages:
+  - build
+  - test
+  - deploy
+
+build:
+  stage: build
+  script:
+    - cd tarefas-app
+
+test:
+  stage: test
+  script:
+    - cd tarefas-app
+
+deploy:
+  stage: deploy
+  image: ruby:2.3
+  script:
+    - cd tarefas-app
+    - apt-get update -qy
+    - apt-get install -y ruby-dev
+    - gem install dpl
+    - dpl --providers=heroku --app=$HEROKU_APP_ENV --api-key=$HEROKU_API_KEY
