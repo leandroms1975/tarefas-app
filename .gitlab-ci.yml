@@ -5,3 +5,16 @@ heroku:
  script:
  - git remote add heroku https://heroku:$HEROKU_API_KEY@git.heroku.com/alexleandro-tarefas-app.git
  - git push -f heroku master
+
+default:
+  image: ruby:3.0
+
+rspec:
+  script: bundle exec rspec
+
+rspec 2.7:
+  image: ruby:2.7
+  script: bundle exec rspec
+
+  tags:
+    - tarefas-app
